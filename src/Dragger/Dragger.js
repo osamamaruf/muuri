@@ -9,6 +9,7 @@ import Emitter from '../Emitter/Emitter';
 
 import getPrefixedPropName from '../utils/getPrefixedPropName';
 import raf from '../utils/raf';
+import getEventTarget from '../utils/getEventTarget';
 
 // Detect support for passive events:
 // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
@@ -299,7 +300,7 @@ Dragger.prototype._createEvent = function(type, e) {
     clientY: touch.clientY,
     pageX: touch.pageX,
     pageY: touch.pageY,
-    target: touch.target
+    target: getEventTarget(touch)
   };
 };
 
